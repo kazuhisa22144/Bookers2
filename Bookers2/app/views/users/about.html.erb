@@ -1,0 +1,17 @@
+
+<%= render 'users/list', users: @users, books: @books %>
+
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+<div class="row">
+  <div class="top-message col-xs-offset-4 col-xs-5">
+    <h2>
+      welcome to
+        <span class="glyphicon glyphicon-book"></span>
+      <strong>Bookers</strong> !!
+    </h2>
+  </div>
+</div>
+
