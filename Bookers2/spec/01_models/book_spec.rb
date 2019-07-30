@@ -12,7 +12,7 @@ RSpec.describe Book, "モデルに関するテスト", type: :model do
   describe '実際に保存してみる' do
     context "保存できる場合" do
       it "user_idを入れて保存" do
-        user = FactoryBot.create(:user,:user_id)
+        user = FactoryBot.create(:user)
         expect(FactoryBot.create(:book, user_id: user.id)).to be_valid
       end
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_29_095552) do
+ActiveRecord::Schema.define(version: 2019_07_30_122437) do
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -26,12 +26,16 @@ ActiveRecord::Schema.define(version: 2019_07_29_095552) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "image_id"
     t.text "introduction"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.text "profile_image_id"
+    t.index ["name"], name: "index_users_on_name", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

@@ -1,9 +1,17 @@
 
-<%= render 'users/list', users: @users, books: @books %>
+
 
 <% if flash[:notice] %>
   <p><%= flash[:notice] %></p>
 <% end %>
+
+
+ <% if @user.errors.any? %>
+          <%= @user.errors.count %>error
+          <% @user.errors.full_messages.each do |message| %>
+              <%= message %>
+          <% end %>
+        <% end %>
 
 <h1>User Info</h1>
 <%= form_for(@user) do |f| %>
@@ -15,7 +23,7 @@
   
   <tr>
     <th>Image</th>
-    <th><%= f.attachment_field :image %></th>
+    <th><%= f.attachment_field :profile_image %></th>
   </tr>
   <tr>
 
