@@ -1,0 +1,22 @@
+<% provide(:title, 'Log in') %>
+<h1>ログイン</h1>
+
+<div class="row"></div>
+  <div class="col-md-6 col-md-offset-3">
+
+    <!-- formの送信先を指定 -->
+
+    <%= form_for :session, url: books_path do |f| %>      
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+
+      <%= f.submit "送信", class: "btn btn-primary" %>
+    <% end %>
+   
+  </div>
+</div>

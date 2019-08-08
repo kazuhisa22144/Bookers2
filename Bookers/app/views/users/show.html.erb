@@ -1,0 +1,31 @@
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <%= render partial: 'users/user_info', locals: {user: @user ,book: @book} %>
+      </div>
+      <h1>Books</h1>
+      <div class="col-lg-9">
+        <table class="table" border="0">
+          <tr class="box">
+            <th class="image"></th>
+            <th class="book-title">Title</th>
+            <th class="book-opinion">Opinion</th>
+          </tr>
+          <% @user.books.each do |book|%>
+          <tr class="box">
+            
+            <td><%= attachment_image_tag @user, :image, :fill, 50, 50,fallback: "no_image.jpg",size: '50x50',class: "user_image" %></td>
+            <td ><%= link_to book_path(book) ,class: "book_#{book.id}" do  %>
+              <%= book.title %>
+              <% end %>
+            </td>
+            <td><%= book.opinion %></td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>

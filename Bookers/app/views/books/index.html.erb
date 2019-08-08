@@ -1,0 +1,42 @@
+<p id="notice">
+ <%= notice %> 
+</p>
+
+<header id="sample">
+<h3>Bookers</h3>
+</header>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-3">
+      <%= render 'users/list', user: @user, book: @book %> 
+      </div>
+              <h2>User info</h2>
+      <div class="col-lg-9" >
+      <table class="table table-striped">
+      <tr class="box">
+          <th class="user-image"></th>
+          <th class="book-title">Title</th>
+          <th class="book-opinion">opinion</th>
+        </tr>
+        <% @books.each do |book| %>
+        <tr class="box">
+          <td >
+           
+          </td>
+          <td >
+            <%= link_to book_path(book.id) , class: "book_#{book.id}" do %>
+            <%= book.title %>
+            <% end %>
+          </td>
+            <td ></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
+
+ <%= render 'books/list', books: @books %>
+ <%= render 'users/list', users: @users %>

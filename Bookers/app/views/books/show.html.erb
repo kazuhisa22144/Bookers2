@@ -1,0 +1,28 @@
+<h2>タイトル</h2>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-3">
+			<%= render partial: 'users/user_info', locals: {user: @user ,book: @book} %>
+		</div>
+		<h1>Book detail</h1>
+		<div class="col-lg-9">
+			<table class="table" border="0">
+				<tr class="box">
+					<td ><%= attachment_image_tag @user, :image, :fill, 50, 50,fallback: "no_image.jpg", size: '50x50',class: "user_image" %><br>
+						<%= link_to user_path(@user.id) ,class: "user_#{@user.id}" do %>
+						<%= @user.username %>
+						<% end %>
+						
+					</td>
+					<td ><%= @books.title %></td>
+					<td ><%= @books.opinion %></td>
+					<% if current_user.id == @books.user_id %>
+					<td ><%= link_to 'Edit',edit_book_path(@books),class: "btn btn-success edit_book_#{@books.id}" %></td>
+					<td></td>
+					<td ><%= link_to 'Destroy',book_path(@books), method: :delete,"data-confirm" => "本当に消しますか？" ,class: "btn btn-danger destroy_book_#{@books.id}" %></td>
+					<% end %>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

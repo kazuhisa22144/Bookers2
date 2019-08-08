@@ -1,0 +1,11 @@
+<h1>Books#show</h1>
+<p>Find me in app/views/books/show.html.erb</p>
+
+<h2>タイトル</h2>
+<p><%= @Book.title %></p>
+<h2>本文</h2>
+<p><%= @Book.body %></p>
+
+<%= link_to "編集", edit_Book_path(@Book.id) %> 
+
+<%= link_to "削除", edit_Book_path(@Book),method: :delete %> 
